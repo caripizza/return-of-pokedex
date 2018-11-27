@@ -1,28 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img class="logo" alt="Pokémon logo" src="./assets/logo.png">
+    <Header msg="Pokémon search & filter"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import Header from './components/Header.vue';
 
 export default {
     name: 'app',
     components: {
-        HelloWorld
+        Header
     }
 };
 </script>
 
 <style>
 #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    font-family: Helvetica, Arial, sans-serif;
     text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
+}
+img.logo {
+    width: 30%;
+    height: 30%;
 }
 </style>
