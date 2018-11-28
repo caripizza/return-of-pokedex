@@ -14,7 +14,6 @@ pokemonz.forEach(pokemon => {
 
 export default {
     getPokemon() {
-        // console.log('hi');
         return pokemonz;
     },
     getTypes() {

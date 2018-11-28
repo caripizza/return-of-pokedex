@@ -2,7 +2,8 @@
     <div id="app">
         <img class="logo" alt="Pokémon logo" src="./assets/logo.png">
         <Header msg="Pokémon search & filter"
-            v-bind:filter="filter"/>
+            v-bind:filter="filter"
+            v-bind:types="pokemonTypes"/>
         <Pokedex v-bind:pokemonz="filteredPokemon"/>
     </div>
 </template>
@@ -18,7 +19,8 @@ export default {
         return {
             pokemonz: pokemonApi.getPokemon(),
             filter: {
-                speed: 0,
+                speed: 100,
+                type: ''
             }
         };
     },
@@ -27,9 +29,20 @@ export default {
         Pokedex
     },
     computed: {
+        pokemonTypes() {
+            const types = [];
+            this.pokemonz.forEach(pokemon => {
+                if(!types.includes(pokemon.type_1)){
+                    types.push(pokemon.type_1);
+                } 
+            });
+            return types;
+        },
         filteredPokemon() {
             return this.pokemonz.filter(pokemon => {
-                return pokemon.speed > this.filter.speed;
+                const hasSpeed = pokemon.speed > this.filter.speed;
+                const hasType1 = !this.filter.type || pokemon.type_1 === this.filter.type;
+                return hasSpeed && hasType1;
             });
         }
     }

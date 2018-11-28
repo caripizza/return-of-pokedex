@@ -2,26 +2,30 @@
     <header>
       <h1>{{ msg }}</h1>
       <section>
-          <label>
-            Filter by Type:
-            <select>
-              <option>Type 1</option>
-              <option>Type 2</option>
-            </select>
-          </label>
-          <label>
-            Filter by Min. Speed:
-            <input v-model.number="filter.speed" 
-              type="number" min="0" step="10"
-              max="300">
-          </label>
-          <label>
-            Sort:
-            <select>
-              <option>Name</option>
-              <option>Min. Speed</option>
-            </select>
-          </label>
+        <label>
+          Filter by Type1:
+          <select v-model="filter.type">
+            <option value="">All</option>
+            <option v-for="type in types" 
+              v-bind:key="type"
+              v-bind:value="type">
+              {{type}}
+              </option>
+          </select>
+        </label>
+        <label>
+          Filter by Min. Speed:
+          <input v-model.number="filter.speed" 
+            type="number" min="0" step="10"
+            max="300">
+        </label>
+        <label>
+          Sort:
+          <select>
+            <option>Name</option>
+            <option>Min. Speed</option>
+          </select>
+        </label>
       </section>
     </header>
 </template>
@@ -31,7 +35,8 @@ export default {
     name: 'Header',
     props: {
         msg: String,
-        filter: Object
+        filter: Object,
+        types: Array
     }
 };
 </script>
