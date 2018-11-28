@@ -1,11 +1,11 @@
 <template>
-  <div id="app">
-    <img class="logo" alt="Pokémon logo" src="./assets/logo.png">
-    <Header msg="Pokémon search & filter"
-        v-bind:filter="filter"/>
-    {{ filter}}
-    <Pokedex v-bind:pokemonz="pokemonz"/>
-  </div>
+    <div id="app">
+        <img class="logo" alt="Pokémon logo" src="./assets/logo.png">
+        <Header msg="Pokémon search & filter"
+            v-bind:filter="filter"/>
+        {{ filter}}
+        <Pokedex v-bind:pokemonz="filteredPokemon"/>
+    </div>
 </template>
 
 <script>
@@ -29,7 +29,7 @@ export default {
     },
     computed: {
         filteredPokemon() {
-            return this.pokemon.filter(pokemon => {
+            return this.pokemonz.filter(pokemon => {
                 return pokemon.speed > this.filter.speed;
             });
         }

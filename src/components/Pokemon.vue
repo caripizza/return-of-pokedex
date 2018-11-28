@@ -3,6 +3,7 @@
         <img v-bind:src="pokemon.url_image" />
         <p>name = {{pokemon.pokemon}}</p>
         <p>speed = {{pokemon.speed}}</p>
+        <p v-bind:style="{background: pokemon.color_1}">color1</p>
     </li>
 </template>
 
@@ -16,9 +17,9 @@ export default {
 
 <style>
 img {
-    width: 10%;
+    width: 25%;
 }
 li {
-    background: blue;
+    border: 2px solid blue;
 }
 </style>

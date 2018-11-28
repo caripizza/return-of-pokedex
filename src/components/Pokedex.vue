@@ -1,9 +1,9 @@
 <template>
-  <ul>
-    <Pokemon v-for="pokemon in pokemonz"
-      v-bind:key="pokemon.pokemon"
-      v-bind:pokemon="pokemon"/>
-  </ul>
+    <ul>
+        <Pokemon v-for="pokemon in pokemonz"
+        v-bind:key="pokemon.pokemon"
+        v-bind:pokemon="pokemon"/>
+    </ul>
 </template>
 
 <script>
@@ -22,9 +22,9 @@ export default {
 <style>
 ul {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     list-style: none;
-    margin: 0;
-    background: pink;
+    margin: 0 auto;
+    padding-left: 0;
 }
 </style>

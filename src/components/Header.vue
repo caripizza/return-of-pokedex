@@ -1,29 +1,29 @@
 <template>
-  <header>
-    <h1>{{ msg }}</h1>
-    <section>
-      <h3>Filter:</h3>
-        <label>
-          Type<br>
-          <select>
-            <option>Type 1</option>
-            <option>Type 2</option>
-          </select>
-        </label>
-        <label>
-          Min. Speed<br>
-          <input v-model.number="filter.speed" type="number" min="0" step="1">
-        </label>
-      <h3>Sort:</h3>
-        <label>
-          <br>
-          <select>
-            <option>Name</option>
-            <option>Min. Speed</option>
-          </select>
-        </label>
-    </section>
-  </header>
+    <header>
+      <h1>{{ msg }}</h1>
+      <section>
+        <h3>Filter:</h3>
+          <label>
+            Type<br>
+            <select>
+              <option>Type 1</option>
+              <option>Type 2</option>
+            </select>
+          </label>
+          <label>
+            Min. Speed<br>
+            <input v-model.number="filter.speed" type="number" min="0" step="1">
+          </label>
+        <h3>Sort:</h3>
+          <label>
+            <br>
+            <select>
+              <option>Name</option>
+              <option>Min. Speed</option>
+            </select>
+          </label>
+      </section>
+    </header>
 </template>
 
 <script>
