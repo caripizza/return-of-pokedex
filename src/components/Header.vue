@@ -20,10 +20,10 @@
             max="300">
         </label>
         <label>
-          Sort:
-          <select>
-            <option>Name</option>
-            <option>Min. Speed</option>
+          Sort by:
+          <select v-model="sort.field">
+            <option value="shape">Shape</option>
+            <option value="speed">Min. Speed</option>
           </select>
         </label>
       </section>
@@ -36,7 +36,8 @@ export default {
     props: {
         msg: String,
         filter: Object,
-        types: Array
+        types: Array,
+        sort: Object
     }
 };
 </script>

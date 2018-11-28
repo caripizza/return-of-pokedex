@@ -2,8 +2,10 @@
     <div id="app">
         <img class="logo" alt="Pokémon logo" src="./assets/logo.png">
         <Header msg="Pokémon search & filter"
+            v-bind:sort="sort"
             v-bind:filter="filter"
             v-bind:types="pokemonTypes"/>
+            {{sortedPokemon}}
         <Pokedex v-bind:pokemonz="filteredPokemon"/>
     </div>
 </template>
@@ -21,6 +23,9 @@ export default {
             filter: {
                 speed: 100,
                 type: ''
+            },
+            sort: {
+                field: 'shape'
             }
         };
     },
@@ -43,6 +48,19 @@ export default {
                 const hasSpeed = pokemon.speed > this.filter.speed;
                 const hasType1 = !this.filter.type || pokemon.type_1 === this.filter.type;
                 return hasSpeed && hasType1;
+            });
+        },
+        sortedPokemon() {
+            const field = this.sort.field;
+            return this.filteredPokemon.slice().sort((a, b) => {
+                if(a[field] > b[field]) {
+                    console.log('test');
+                    return 1;
+                }
+                if(a[field] < b[field]) {
+                    return -1;
+                }
+                return 0;
             });
         }
     }
