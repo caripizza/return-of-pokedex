@@ -26,6 +26,10 @@
             <option value="shape">Shape</option>
             <option value="speed">Speed</option>
           </select>
+          <select v-model="sort.direction">
+            <option value="1">Asc</option>
+            <option value="-1">Desc</option>
+          </select>
         </label>
       </section>
     </header>

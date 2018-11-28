@@ -24,7 +24,8 @@ export default {
                 type: ''
             },
             sort: {
-                field: 'type_1'
+                field: 'type_1',
+                direction: 1
             }
         };
     },
@@ -51,12 +52,13 @@ export default {
         },
         sortedPokemon() {
             const field = this.sort.field;
+            const direction = this.sort.direction;
             return this.filteredPokemon.slice().sort((a, b) => {
                 if(a[field] > b[field]) {
-                    return 1;
+                    return 1 * direction;
                 }
                 if(a[field] < b[field]) {
-                    return -1;
+                    return -1 * direction;
                 }
                 return 0;
             });
