@@ -1,25 +1,23 @@
-import pokemon from '../assets/pokedex.js';
+import pokemonz from '../assets/pokedex.js';
 
-// console.log(pokemon[0]);
 
-// const types = [];
+const types = [];
 
-/*
-pokemon.forEach(pokemon => {
-    const type = pokemon.type_1;
-    if(types.includes(type)) {
-        return;
-    }
-    types.push(type);
-}); */
+
+pokemonz.forEach(pokemon => {
+    const type1 = pokemon.type_1;
+    if(types.includes(type1)) {
+        types.push(type1);
+    } else return;
+});
 
 
 export default {
     getPokemon() {
-        console.log('hi');
-        return pokemon;
-    }, /*
+        // console.log('hi');
+        return pokemonz;
+    },
     getTypes() {
         return types;
-    } */
+    }
 };

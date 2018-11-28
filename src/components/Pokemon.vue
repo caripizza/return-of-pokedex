@@ -1,7 +1,9 @@
 <template>
-  <li>
-    <img v-bind:src="pokemon.name" />
-  </li>
+    <li>
+        <img v-bind:src="pokemon.url_image" />
+        <p>name = {{pokemon.pokemon}}</p>
+        <p>speed = {{pokemon.speed}}</p>
+    </li>
 </template>
 
 <script>
@@ -14,6 +16,9 @@ export default {
 
 <style>
 img {
-    width: 100%;
+    width: 10%;
+}
+li {
+    background: blue;
 }
 </style>

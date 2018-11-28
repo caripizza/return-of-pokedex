@@ -1,16 +1,18 @@
 <template>
   <ul>
-    <Pokemon v-for="pokemon in pokemon"
-      v-bind:key="pokemon.name"
-      v-bind:animal="pokemon"/>
+    <Pokemon v-for="pokemon in pokemonz"
+      v-bind:key="pokemon.pokemon"
+      v-bind:pokemon="pokemon"/>
   </ul>
 </template>
 
 <script>
-// import pokemonApi from '../services/pokemonApi.js';
 import Pokemon from './Pokemon.vue';
 
 export default {
+    props: {
+        pokemonz: Array
+    },
     components: {
         Pokemon
     }
@@ -18,5 +20,11 @@ export default {
 </script>
 
 <style>
-
+ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+    list-style: none;
+    margin: 0;
+    background: pink;
+}
 </style>

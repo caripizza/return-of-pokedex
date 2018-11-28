@@ -1,23 +1,38 @@
 <template>
   <div id="app">
     <img class="logo" alt="Pokémon logo" src="./assets/logo.png">
-    <Header msg="Pokémon search & filter"/>
-    {{ pokemon }}
+    <Header msg="Pokémon search & filter"
+        v-bind:filter="filter"/>
+    {{ filter}}
+    <Pokedex v-bind:pokemonz="pokemonz"/>
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue';
 import pokemonApi from './services/pokemonApi.js';
+import Pokedex from './components/Pokedex.vue';
 
 export default {
+    name: 'app',
     data() {
         return {
-            pokemon: pokemonApi.getPokemon(),
+            pokemonz: pokemonApi.getPokemon(),
+            filter: {
+                speed: 0,
+            }
         };
     },
     components: {
-        Header
+        Header,
+        Pokedex
+    },
+    computed: {
+        filteredPokemon() {
+            return this.pokemon.filter(pokemon => {
+                return pokemon.speed > this.filter.speed;
+            });
+        }
     }
 };
 </script>

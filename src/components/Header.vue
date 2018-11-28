@@ -12,7 +12,7 @@
         </label>
         <label>
           Min. Speed<br>
-          <input type="number" min="0" value="1" step="1">
+          <input v-model.number="filter.speed" type="number" min="0" step="1">
         </label>
       <h3>Sort:</h3>
         <label>
@@ -30,7 +30,8 @@
 export default {
     name: 'Header',
     props: {
-        msg: String
+        msg: String,
+        filter: Object
     }
 };
 </script>
