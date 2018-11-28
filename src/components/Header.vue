@@ -36,6 +36,9 @@ export default {
 </script>
 
 <style scoped>
+header {
+  background: red;
+}
 h1 {
     margin: 0 auto;
     color: purple;

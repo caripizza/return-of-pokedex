@@ -1,29 +1,9 @@
-# return-of-pokedex
+# Return of Pokemon app
 
-## Project setup
-```
-npm install
-```
+## by Cari Palazzolo @caripizza
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### Description
+A single page Pokémon search & filter app, displaying a list of retrieved results.
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Technologies Used
+VueJS, HTML, CSS
