@@ -5,8 +5,7 @@
             v-bind:sort="sort"
             v-bind:filter="filter"
             v-bind:types="pokemonTypes"/>
-            {{sortedPokemon}}
-        <Pokedex v-bind:pokemonz="filteredPokemon"/>
+        <Pokedex v-bind:pokemonz="sortedPokemon"/>
     </div>
 </template>
 
@@ -25,7 +24,7 @@ export default {
                 type: ''
             },
             sort: {
-                field: 'shape'
+                field: 'type_1'
             }
         };
     },
@@ -54,7 +53,6 @@ export default {
             const field = this.sort.field;
             return this.filteredPokemon.slice().sort((a, b) => {
                 if(a[field] > b[field]) {
-                    console.log('test');
                     return 1;
                 }
                 if(a[field] < b[field]) {

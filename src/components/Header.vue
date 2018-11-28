@@ -14,7 +14,7 @@
           </select>
         </label>
         <label>
-          Filter by Min. Speed:
+          Filter by Speed:
           <input v-model.number="filter.speed" 
             type="number" min="0" step="10"
             max="300">
@@ -22,8 +22,9 @@
         <label>
           Sort by:
           <select v-model="sort.field">
+            <option value="type_1">Type1</option>
             <option value="shape">Shape</option>
-            <option value="speed">Min. Speed</option>
+            <option value="speed">Speed</option>
           </select>
         </label>
       </section>
