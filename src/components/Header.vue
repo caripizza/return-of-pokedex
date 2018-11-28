@@ -2,21 +2,21 @@
     <header>
       <h1>{{ msg }}</h1>
       <section>
-        <h3>Filter:</h3>
           <label>
-            Type<br>
+            Filter by Type:
             <select>
               <option>Type 1</option>
               <option>Type 2</option>
             </select>
           </label>
           <label>
-            Min. Speed<br>
-            <input v-model.number="filter.speed" type="number" min="0" step="1">
+            Filter by Min. Speed:
+            <input v-model.number="filter.speed" 
+              type="number" min="0" step="10"
+              max="300">
           </label>
-        <h3>Sort:</h3>
           <label>
-            <br>
+            Sort:
             <select>
               <option>Name</option>
               <option>Min. Speed</option>
@@ -49,6 +49,13 @@ section {
     flex-direction: column;
     justify-content: space-evenly;
     flex-flow: row wrap;
-    padding-top: 10px;
+    padding: 10px;
+}
+select {
+  background-color: white;
+  font-size: 16px;
+}
+input {
+    font-size: 16px;
 }
 </style>

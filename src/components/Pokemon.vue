@@ -1,9 +1,11 @@
 <template>
     <li>
         <img v-bind:src="pokemon.url_image" />
-        <p>name = {{pokemon.pokemon}}</p>
-        <p>speed = {{pokemon.speed}}</p>
-        <p v-bind:style="{background: pokemon.color_1}">color1</p>
+        <p>Name: {{pokemon.pokemon}}</p>
+        <p>Speed: {{pokemon.speed}}</p>
+        <p v-bind:style="{background: pokemon.color_1}">
+            Color1: {{pokemon.color_1}}
+        </p>
     </li>
 </template>
 
@@ -21,5 +23,6 @@ img {
 }
 li {
     border: 2px solid blue;
+    background: white;
 }
 </style>

@@ -23,6 +23,7 @@ export default {
 ul {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
     list-style: none;
     margin: 0 auto;
     padding-left: 0;

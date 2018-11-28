@@ -3,7 +3,6 @@
         <img class="logo" alt="Pokémon logo" src="./assets/logo.png">
         <Header msg="Pokémon search & filter"
             v-bind:filter="filter"/>
-        {{ filter}}
         <Pokedex v-bind:pokemonz="filteredPokemon"/>
     </div>
 </template>
@@ -41,6 +40,9 @@ export default {
 #app {
     font-family: Helvetica, Arial, sans-serif;
     text-align: center;
+}
+html {
+    background: red;
 }
 img.logo {
     width: 30%;
