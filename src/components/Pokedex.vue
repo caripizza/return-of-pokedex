@@ -10,12 +10,12 @@
 import Pokemon from './Pokemon.vue';
 
 export default {
-    props: {
-        pokemonz: Array
-    },
-    components: {
-        Pokemon
-    }
+  props: {
+    pokemonz: Array
+  },
+  components: {
+    Pokemon
+  }
 };
 </script>
 

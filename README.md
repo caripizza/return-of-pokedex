@@ -3,7 +3,7 @@
 ## by Cari Palazzolo @caripizza
 
 ### Description
-A single page Pokémon search & filter app, displaying a list of retrieved results.
+This single page Pokémon search & filter app displays an animated list of retrieved results.
 
 ### Technologies Used
-VueJS, HTML, CSS
+Vue CLI, JavaScript, HTML, CSS/PostCSS

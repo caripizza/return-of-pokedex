@@ -37,13 +37,13 @@
 
 <script>
 export default {
-    name: 'Header',
-    props: {
-        msg: String,
-        filter: Object,
-        types: Array,
-        sort: Object
-    }
+  name: 'Header',
+  props: {
+    msg: String,
+    filter: Object,
+    types: Array,
+    sort: Object
+  }
 };
 </script>
 

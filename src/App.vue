@@ -15,55 +15,55 @@ import pokemonApi from './services/pokemonApi.js';
 import Pokedex from './components/Pokedex.vue';
 
 export default {
-    name: 'app',
-    data() {
-        return {
-            pokemonz: pokemonApi.getPokemon(),
-            filter: {
-                speed: 100,
-                type: ''
-            },
-            sort: {
-                field: 'type_1',
-                direction: 1
-            }
-        };
+  name: 'app',
+  data() {
+    return {
+      pokemonz: pokemonApi.getPokemon(),
+      filter: {
+        speed: 100,
+        type: ''
+      },
+      sort: {
+        field: 'type_1',
+        direction: 1
+      }
+    };
+  },
+  components: {
+    Header,
+    Pokedex
+  },
+  computed: {
+    pokemonTypes() {
+      const types = [];
+      this.pokemonz.forEach(pokemon => {
+        if(!types.includes(pokemon.type_1)){
+          types.push(pokemon.type_1);
+        } 
+      });
+      return types;
     },
-    components: {
-        Header,
-        Pokedex
+    filteredPokemon() {
+      return this.pokemonz.filter(pokemon => {
+        const hasSpeed = pokemon.speed > this.filter.speed;
+        const hasType1 = !this.filter.type || pokemon.type_1 === this.filter.type;
+        return hasSpeed && hasType1;
+      });
     },
-    computed: {
-        pokemonTypes() {
-            const types = [];
-            this.pokemonz.forEach(pokemon => {
-                if(!types.includes(pokemon.type_1)){
-                    types.push(pokemon.type_1);
-                } 
-            });
-            return types;
-        },
-        filteredPokemon() {
-            return this.pokemonz.filter(pokemon => {
-                const hasSpeed = pokemon.speed > this.filter.speed;
-                const hasType1 = !this.filter.type || pokemon.type_1 === this.filter.type;
-                return hasSpeed && hasType1;
-            });
-        },
-        sortedPokemon() {
-            const field = this.sort.field;
-            const direction = this.sort.direction;
-            return this.filteredPokemon.slice().sort((a, b) => {
-                if(a[field] > b[field]) {
-                    return 1 * direction;
-                }
-                if(a[field] < b[field]) {
-                    return -1 * direction;
-                }
-                return 0;
-            });
+    sortedPokemon() {
+      const field = this.sort.field;
+      const direction = this.sort.direction;
+      return this.filteredPokemon.slice().sort((a, b) => {
+        if(a[field] > b[field]) {
+          return 1 * direction;
         }
+        if(a[field] < b[field]) {
+          return -1 * direction;
+        }
+        return 0;
+      });
     }
+  }
 };
 </script>
 
