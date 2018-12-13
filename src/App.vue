@@ -5,8 +5,7 @@
             :sort="sort"
             :filter="filter"
             :types="pokemonTypes"/>
-        <Pokedex :pokemonz="sortedPokemon"
-        />
+        <Pokedex :pokemonz="sortedPokemon"/>
         <PokemonDetail/>
     </div>
 </template>
@@ -23,6 +22,7 @@ export default {
     return {
       pokemonz: pokemonApi.getPokemon(),
       filter: {
+        name: '',
         speed: 100,
         type: ''
       },
@@ -50,9 +50,10 @@ export default {
     },
     filteredPokemon() {
       return this.pokemonz.filter(pokemon => {
+        const hasName = !this.filter.name || pokemon.pokemon.includes(this.filter.name);
         const hasSpeed = pokemon.speed > this.filter.speed;
         const hasType1 = !this.filter.type || pokemon.type_1 === this.filter.type;
-        return hasSpeed && hasType1;
+        return hasName && hasSpeed && hasType1;
       });
     },
     sortedPokemon() {

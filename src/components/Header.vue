@@ -3,6 +3,10 @@
       <h1>{{ msg }}</h1>
       <section>
         <label>
+          Filter by Name:
+          <input v-focus type="text" v-model="filter.name">
+        </label>
+        <label>
           Filter by Type1:
           <select v-model="filter.type">
             <option value="">All</option>
