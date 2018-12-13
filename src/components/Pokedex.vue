@@ -1,9 +1,18 @@
 <template>
-    <ul>
+    <transition-group name="staggered-fade"
+      tag="ul"
+      :css="false"
+      @before-enter="beforeEnter"
+      @enter="enter"
+      @leave="leave"
+    >
         <Pokemon v-for="pokemon in pokemonz"
-        v-bind:key="pokemon.pokemon"
-        v-bind:pokemon="pokemon"/>
-    </ul>
+        :key="pokemon.pokemon"
+        :pokemon="pokemon"
+        class="li"
+        @click="onSelect(pokemon)"
+        />
+    </transition-group>
 </template>
 
 <script>
@@ -11,21 +20,52 @@ import Pokemon from './Pokemon.vue';
 
 export default {
   props: {
-    pokemonz: Array
+    pokemonz: Array,
+    onSelect: Function
   },
   components: {
     Pokemon
+  },
+  methods: {
+    beforeEnter(el) {
+      el.style.opacity = 0;
+      el.style.height = 10;
+    },
+    enter(el, done) {
+      var delay = el.dataset.index * 150;
+      setTimeout(function() {
+        // eslint-disable-next-line
+        Velocity(
+          el,
+          { opacity: 1, height: 170 },
+          { complete: done },
+          { duration: 3000 }
+        );
+      }, delay);
+    },
+    leave(el, done) {
+      var delay = el.dataset.index * 150;
+      setTimeout(function() {
+        // eslint-disable-next-line
+        Velocity(
+          el,
+          { opacity: 0, height: 10 },
+          { complete: done }
+        );
+      }, delay);
+    }
   }
 };
 </script>
 
-<style>
+<style lang="postcss" scoped>
 ul {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
-    list-style: none;
-    margin: 0 auto;
-    padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  list-style: none;
+  max-width: 60%;
+  padding-left: 0;
+  float: left;
 }
 </style>

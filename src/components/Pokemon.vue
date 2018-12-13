@@ -1,5 +1,5 @@
 <template>
-    <li>
+    <li v-if="pokemon">
         <img v-bind:src="pokemon.url_image" />
         <p>Name: {{pokemon.pokemon}}</p>
         <p>Type: {{pokemon.type_1}}</p>
@@ -12,6 +12,7 @@
 </template>
 
 <script>
+
 export default {
   props: {
     pokemon: Object
@@ -19,12 +20,17 @@ export default {
 };
 </script>
 
-<style>
+<style lang="postcss" scoped>
 img {
-    width: 25%;
+    width: 35%;
 }
 li {
     border: 2px solid blue;
     background: white;
+    margin: 0 auto;
+    height: 170px;
+}
+p {
+  margin: 0px ;
 }
 </style>

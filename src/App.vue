@@ -2,10 +2,12 @@
     <div id="app">
         <img class="logo" alt="Pokémon logo" src="./assets/logo.png">
         <Header msg="Pokémon search & filter"
-            v-bind:sort="sort"
-            v-bind:filter="filter"
-            v-bind:types="pokemonTypes"/>
-        <Pokedex v-bind:pokemonz="sortedPokemon"/>
+            :sort="sort"
+            :filter="filter"
+            :types="pokemonTypes"/>
+        <Pokedex :pokemonz="sortedPokemon"
+        />
+        <PokemonDetail/>
     </div>
 </template>
 
@@ -13,6 +15,7 @@
 import Header from './components/Header.vue';
 import pokemonApi from './services/pokemonApi.js';
 import Pokedex from './components/Pokedex.vue';
+import PokemonDetail from './components/PokemonDetail';
 
 export default {
   name: 'app',
@@ -26,12 +29,14 @@ export default {
       sort: {
         field: 'type_1',
         direction: 1
-      }
+      },
+      selected: null
     };
   },
   components: {
     Header,
-    Pokedex
+    Pokedex,
+    PokemonDetail
   },
   computed: {
     pokemonTypes() {
@@ -63,6 +68,8 @@ export default {
         return 0;
       });
     }
+  },
+  methods: {
   }
 };
 </script>
