@@ -5,8 +5,8 @@
             :sort="sort"
             :filter="filter"
             :types="pokemonTypes"/>
-        <Pokedex :pokemonz="sortedPokemon"/>
-        <PokemonDetail/>
+        <Pokedex :pokemonz="sortedPokemon" :onSelect="handleSelect"/>
+        <PokemonDetail :pokemon="selected"/>
     </div>
 </template>
 
@@ -71,6 +71,10 @@ export default {
     }
   },
   methods: {
+    handleSelect(pokemon) {
+      // this.selected = pokemon;
+      this.selected = pokemon === this.selected ? null : pokemon;
+    },
   }
 };
 </script>

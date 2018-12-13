@@ -10,7 +10,7 @@
         :key="pokemon.pokemon"
         :pokemon="pokemon"
         class="li"
-        @click="onSelect(pokemon)"
+        @click.native="onSelect(pokemon)"
         />
     </transition-group>
 </template>
