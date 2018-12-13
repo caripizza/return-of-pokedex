@@ -1,4 +1,5 @@
 <template>
+  <section>
     <transition-group name="staggered-fade"
       tag="ul"
       :css="false"
@@ -6,17 +7,18 @@
       @enter="enter"
       @leave="leave"
     >
-        <Pokemon v-for="pokemon in pokemonz"
+      <Pokemon v-for="pokemon in pokemonz"
         :key="pokemon.pokemon"
         :pokemon="pokemon"
         class="li"
         @click.native="onSelect(pokemon)"
-        />
+      />
     </transition-group>
+  </section>
 </template>
 
 <script>
-import Pokemon from './Pokemon.vue';
+import Pokemon from './Pokemon';
 
 export default {
   props: {
@@ -62,7 +64,7 @@ export default {
 ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+  grid-gap: 1em;
   list-style: none;
   max-width: 60%;
   padding-left: 0;

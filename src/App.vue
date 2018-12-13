@@ -1,19 +1,21 @@
 <template>
-    <div id="app">
-        <img class="logo" alt="Pokémon logo" src="./assets/logo.png">
-        <Header msg="Pokémon search & filter"
-            :sort="sort"
-            :filter="filter"
-            :types="pokemonTypes"/>
-        <Pokedex :pokemonz="sortedPokemon" :onSelect="handleSelect"/>
-        <PokemonDetail :pokemon="selected"/>
-    </div>
+  <div id="app">
+    <img class="logo" alt="Pokémon logo" src="./assets/logo.png">
+    <Header msg="Pokémon search & filter"
+      :sort="sort"
+      :filter="filter"
+      :types="pokemonTypes"/>
+    <Pokedex :pokemonz="sortedPokemon" 
+      :onSelect="handleSelect"
+    />
+    <PokemonDetail :pokemon="selected"/>
+  </div>
 </template>
 
 <script>
-import Header from './components/Header.vue';
-import pokemonApi from './services/pokemonApi.js';
-import Pokedex from './components/Pokedex.vue';
+import Header from './components/Header';
+import pokemonApi from './services/pokemonApi';
+import Pokedex from './components/Pokedex';
 import PokemonDetail from './components/PokemonDetail';
 
 export default {
@@ -72,7 +74,6 @@ export default {
   },
   methods: {
     handleSelect(pokemon) {
-      // this.selected = pokemon;
       this.selected = pokemon === this.selected ? null : pokemon;
     },
   }
@@ -81,14 +82,14 @@ export default {
 
 <style>
 #app {
-    font-family: Helvetica, Arial, sans-serif;
-    text-align: center;
+  font-family: Helvetica, Arial, sans-serif;
+  text-align: center;
 }
 html {
     background: red;
 }
 img.logo {
-    width: 30%;
-    height: 30%;
+  width: 15%;
+  height: 15%;
 }
 </style>

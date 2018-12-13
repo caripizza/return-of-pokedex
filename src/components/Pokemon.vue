@@ -21,16 +21,16 @@ export default {
 
 <style lang="postcss" scoped>
 img {
-  width: 35%;
+  width: 20%;
 }
 li {
   border: 2px solid blue;
   background: white;
   margin: 0 auto;
-  height: 170px;
+  height: 160px;
 }
 li:hover {
-    opacity: .8;
+  opacity: .8;
 }
 p {
   margin: 0px ;

@@ -1,22 +1,20 @@
 <template>
   <section>
-    <transition name="bounce"
-      enter-active-class="bouncein"
-    >
-    <div key="1" v-if="pokemon" :style="{background: pokemon.color_1}">
-      <img v-bind:src="pokemon.url_image">
-      <a :href="pokemon.pokedex" target="_blank"><h2>{{pokemon.pokemon}}</h2></a>
-      <p>Experience: {{pokemon.base_experience}}</p>
-      <p>Weight: {{pokemon.weight}}</p>
-      <p>Pokébase: {{pokemon.pokebase}}</p>
-      <p>Shape: {{pokemon.shape}}</p>
-      <p>Ability 1: {{pokemon.ability_1}}</p>
-      <p>Type 1: {{pokemon.type_1}}</p>
-      <p id="btm">Type 2: {{pokemon.type_2}}</p>
-    </div>
-    <div key="2" v-else>
-        <p id="msg">(Please select a Pokémon)</p>
-    </div>
+    <transition name="bounce">
+      <div key="1" v-if="pokemon" :style="{background: pokemon.color_1}">
+        <img v-bind:src="pokemon.url_image">
+        <a :href="pokemon.pokedex" target="_blank"><h2>{{pokemon.pokemon}}</h2></a>
+        <p>Experience: {{pokemon.base_experience}}</p>
+        <p>Weight: {{pokemon.weight}}</p>
+        <p>Pokébase: {{pokemon.pokebase}}</p>
+        <p>Shape: {{pokemon.shape}}</p>
+        <p>Ability 1: {{pokemon.ability_1}}</p>
+        <p>Type 1: {{pokemon.type_1}}</p>
+        <p id="btm">Type 2: {{pokemon.type_2}}</p>
+      </div>
+      <div key="2" v-else>
+          <p id="msg">(Please select a Pokémon)</p>
+      </div>
     </transition>
   </section>
 </template>
@@ -38,7 +36,7 @@ export default {
 <style lang="postcss" scoped>
 section {
   float: right;
-  margin: 30px 10px 0px 0px;
+  margin: 20px 10px 0px 0px;
   width: 35%;
 }
 h2 {
@@ -51,6 +49,7 @@ img {
 p#msg {
   color: purple;
   font-style: italic;
+  padding-top: 30px;
 }
 p {
   margin: 0;
